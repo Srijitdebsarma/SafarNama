@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerPlate") %>  
+<style>
+  .filter{
+    opacity: 0.8;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor:pointer;
+  }
+</style>
+<body>
+  <!-- <h1 class="mb-2">All Listings</h1> -->
+  <div class="header">
+    <div id="filters" class="d-flex flex-wrap justify-content-around">
+      <a href="/listings/search/temple" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fas fa-fire-alt"></i></div>
+        <p>Trending</p>
+      </a>
+      <a href="/listings/search/mountain" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fas fa-mountain"></i></div>
+        <p>Mountain</p>
+      </a>
+      <a href="/listings/search/sea" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fas fa-umbrella-beach"></i></div>
+        <p>Sea</p>
+      </a>
+      <a href="/listings/search/city" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fas fa-city"></i></div>
+        <p>City</p>
+      </a>
+      <a href="/listings/search/temple" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fas fa-church"></i></div>
+        <p>Temple</p>
+      </a>
+      <a href="/listings/search/desert" class="filter mt-1 mr-3" style="text-align: center; text-decoration: none; color: #ff5a5f;">
+        <div><i class="fab fa-fort-awesome-alt"></i></div>
+        <p>Desert</p>
+      </a>
+    </div>
+  
+</div>
+  
+  
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 " style="margin-top: 20px;">
+        <!-- row-cols-lg-3 for large screen it will be 3 -->
+    <% for(let listing of allListings){ %>
+    <a href="/listings/<%=listing._id%>" class="listing-link">
+    <div class="card col" style="width: 18rem;">
+        <img class="card-img-top image-hover-effect" style="height: 220px; width: 300px;" src="<%=listing.image.url %>" alt="listing_imgage">
+        <!-- proti ta image er upor overlay create hya jai jodi etai click kora hy -->
+        <!-- <div class="card-img-overlay"></div> -->
+        <div class="card-body">
+          <h5 class="card-title"><b><%= listing.title %></b></h5>
+          <p class="card-title"><i><%= listing.location %>,<%= listing.country %></i></p>
+          <!-- <p class="card-text">&#8377;<%=listing.expense.toLocaleString("en-IN") %>/ Night</p>  -->
+        </div>
+      </div>
+    </a>
+        <% } %>
+    </div>
+</body>

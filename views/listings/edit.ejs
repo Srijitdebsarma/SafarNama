@@ -1,0 +1,126 @@
+<% layout("/layouts/boilerPlate") %>
+<body>
+    <div class="row">
+        <div class="col-8">
+            <h1>Edit Your Safar</h1>
+            <br/>
+    <form method="POST" action="/listings/<%=data._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <lable for="title" class="form-label">Title</lable>
+            <input type="text" name="title" value="<%=data.title %>" class="form-control" required/>
+            <div class="valid-feedback">Title Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a valid title!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="description" class="form-label">Description</lable>
+            <input type="textarea" name="description" value="<%=data.description %>" class="form-control" required/>
+            <div class="valid-feedback">Description Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a short description!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="location" class="form-label">location</lable>
+            <input type="text" name="location" value="<%=data.location %>" class="form-control" required/>
+            <div class="valid-feedback">Location Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a valid location!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="travel" class="form-label">Travel</lable>
+            <input type="text" name="travel" value="<%=data.travel%>" class="form-control" required/>
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a valid text!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="speciality" class="form-label">Must Watch</lable>
+            <input type="text" name="speciality" value="<%=data.speciality %>" class="form-control" required/>
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a valid text!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="food" class="form-label">Food</lable>
+            <input type="text" name="food" value="<%=data.food %>" class="form-control" required/>
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a valid text!</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            <div class="mb-3">
+                <lable for="expense" class="form-label">Expense</lable>
+                <input type="number" name="expense" value="<%=data.expense %>" class="form-control" required/>
+                <div class="valid-feedback">Price Looks Good!</div> 
+                <div class="invalid-feedback"> Please Enter a valid price!</div>
+            </div>
+            </div>
+            <div class="col-md-8">
+            <div class="mb-3">
+                <lable for="country" class="form-label">Country</lable>
+                <input type="text" name="country" value="<%=data.country %>" class="form-control" required/>
+                <div class="valid-feedback">Country Looks Good!</div> 
+                <div class="invalid-feedback"> Please Enter a valid country</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Choose a Category</label>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="mountain" value="Mountain">
+                        <label class="form-check-label" for="mountain">
+                            Mountain
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="sea" value="Sea">
+                        <label class="form-check-label" for="sea">
+                            Sea
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="city" value="City">
+                        <label class="form-check-label" for="city">
+                            City
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="desert" value="Desert">
+                        <label class="form-check-label" for="desert">
+                            Desert
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="temple" value="Temple">
+                        <label class="form-check-label" for="temple">
+                            Temple
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </div>         
+    </div>
+    </div>
+        </div>
+        <div class="mb-3">
+            Original Listing Image <br/>
+            <img src="<%=origialImageURL %>"/>
+        </div>
+        <div class="mb-3">
+            <lable for="image" class="form-label">Upload new Image</lable>
+            <input type="file" name="image" class="form-control"/>
+        </div>
+        
+        <br/><br/>
+        <button class="btn btn-dark mb-2" style="background-color: red;">Edit</button>
+        <br/>
+    </form>
+    </div>
+</div>
+</body>
+
+  

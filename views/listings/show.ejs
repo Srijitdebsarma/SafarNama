@@ -1,0 +1,205 @@
+
+<% layout("/layouts/boilerPlate") %>
+<body>
+  <div class="container d-flex">
+    <h2 class="card-title mt-2"  style="margin-left: 60px;"><b><%=detail.title %></b></h2>
+</div>
+
+    <div class="card container d-flex justify-content-center" style="width: 45rem; margin-top: 20px; padding-bottom: 20px;">
+        <img class="card-img-top" src="<%=detail.image.url%>" alt="<%=detail.title %> image" style="height: 400px; width: 180px;">
+        <div class="card-body" style="margin-top: 10px;">
+          <h5 class="card-title"><b><%=detail.title %></b></h5>
+          <p>Created by - <i><%=detail.owner.username  %></i></p>
+          <br>
+          <p class="card-text"><%=detail.description %></p>
+          <div id="accordion" style="text-decoration: none; text-decoration-color: black;">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#travelCollapse" aria-expanded="true" aria-controls="travelCollapse">
+                            How to Reach?
+                        </button>
+                    </h5>
+                </div>
+        
+                <div id="travelCollapse" class="collapse" aria-labelledby="travelHeading" data-parent="#accordion">
+                    <div class="card-body">
+                        <p class="card-text"><%= detail.travel %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#specialityCollapse" aria-expanded="true" aria-controls="specialityCollapse">
+                            Must Try
+                        </button>
+                    </h5>
+                </div>
+        
+                <div id="specialityCollapse" class="collapse" aria-labelledby="specialityHeading" data-parent="#accordion">
+                    <div class="card-body">
+                        <p class="card-text"><%= detail.speciality %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#foodCollapse" aria-expanded="true" aria-controls="foodCollapse">
+                            Foods to try
+                        </button>
+                    </h5>
+                </div>
+        
+                <div id="foodCollapse" class="collapse" aria-labelledby="foodHeading" data-parent="#accordion">
+                    <div class="card-body">
+                        <p class="card-text"><%= detail.food %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="expenseAccordion">
+          <div class="card">
+              <div class="card-header">
+                  <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#expenseCollapse" aria-expanded="true" aria-controls="expenseCollapse">
+                          Expense
+                      </button>
+                  </h5>
+              </div>
+      
+              <div id="expenseCollapse" class="collapse" aria-labelledby="expenseHeading" data-parent="#expenseAccordion">
+                  <div class="card-body">
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item text-decoration-none border-0">Expense : &#8377;<%=detail.expense.toLocaleString("en-IN") %></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+          
+        </div>
+        <ul class="list-group list-group-flush">
+          <p id="mapMarker" class="list-group-item text-decoration-none border-0"><i class="fas fa-map-marker-alt" style="font-size:25px;color:red"></i><i style="font-size: large;"><%=detail.location %></i></p>
+        </ul>
+        <div class="card-body" style="display: inline;">
+          <% if(currUser && currUser._id.equals(detail.owner._id)){ %>
+            <div class="btns ">
+                <a href="/listings/<%=detail._id%>/edit" class="card-link btn btn-dark col-1" style="background-color: red;">Edit</a>
+            <a>
+                <form method="POST" action="/listings/<%=detail._id%>?_method=DELETE" class="card-link btn">
+                  <button class="btn btn-dark">Delete</button>
+                 </form>
+            </a>
+         </div>
+         <br><br>
+         <% } %>
+         <hr/>
+         <% if(currUser){ //if there is a loggedin user then this curruser is true %>
+         <div class="col-8 offset-1">
+          <h4>Leave a Review</h4>
+          <form action="/listings/<%=detail._id %>/reviews" method="POST" novalidate class="needs-validation ">
+            <div  class="mb-3 mt-3">
+              <label for="rating" class="form-label">Rating</label>
+              <fieldset class="starability-checkmark">
+                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+            </div>
+            <div class="mb-3">
+              <label for="comment" class="from-label">Comment</label>
+              <textarea  cols="30" rows="5" id="comment" name="review[comment]" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please add a comment</div>
+            </div>
+            <button class="btn btn-outline-dark">Submit</button>
+          </form>
+          <br><hr>
+          <% } %>
+          
+          <% if(detail.reviews.length>0){ %>
+          <p><b>All Reviews</b></p>
+          <div class="row">
+          <% for(review of detail.reviews){ %>
+            <div class="card col-5 ms-3 mb-3 card border">
+              <div class="card-body d-flex justify-content-between">
+                <h5 class="card-title mt-2"><%=review.author.username %></h5>
+                <% if(currUser && currUser.username==review.author.username){ %>
+                <form method="post" action="/listings/<%=detail._id%>/reviews/<%=review._id%>?_method=DELETE">
+                  <button class="btn btn-sm" style="position: absolute; top: 0; right: 0; margin-top: 5px;" >❌</button>
+                </form>
+                <% } %>
+              </div>
+              <div class="card-body">
+                <div class="card-text"><%=review.comment%> <br>
+                <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
+                </div>
+              </div>
+            </div>
+            
+          <% } %>
+        </div>
+        <hr/>
+        <% } %>
+        
+         </div>
+        </div>
+        
+        <!-- //maps section -->
+        <div class="col-8 offset-1 mb-3">
+          <h3>Where you'll be</h3>
+          <div id="map"></div>
+        </div>
+
+      </div>
+</body>
+
+
+<script>
+    $(document).ready(function(){
+        // Collapse all items initially
+        $('.collapse').collapse('hide');
+
+        // Handle accordion behavior
+        $('#accordion .card').on('click', function() {
+            $(this).siblings().find('.collapse').collapse('hide');
+        });
+    });
+
+    //for mapbox
+  let mapToken = "<%= process.env.MAP_TOKEN %>";
+  mapboxgl.accessToken = mapToken;
+  const coordinates = <%-JSON.stringify(detail.geometry.coordinates)%>;
+  const map = new mapboxgl.Map({
+      container: 'map', //id
+      style:"mapbox://styles/mapbox/satellite-streets-v12",
+      center: coordinates, // Use the array directly
+      zoom: 12,
+  });
+
+  // Marker 
+  const marker = new mapboxgl.Marker({color:"red"})
+      .setLngLat(coordinates)
+      .addTo(map);
+
+  // Define popup content
+  const popupContent = `<h4><%=detail.title%></h4>`;
+
+  // Add event listener to trigger popup on marker click
+  document.getElementById('mapMarker').addEventListener('click', function() {
+    new mapboxgl.Popup({offset:25})
+      .setLngLat(coordinates)
+      .setHTML(popupContent)
+      .addTo(map);
+  });
+</script>

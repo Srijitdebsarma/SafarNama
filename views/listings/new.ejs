@@ -1,0 +1,122 @@
+<% layout("/layouts/boilerPlate") %>
+<body>
+    <div class="row">
+        <div class="col-8">
+    <h1>Create a new Safar</h1>
+    <br/>
+    <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <lable for="title" class="form-label">Title</lable>
+            <input type="text" name="title" placeholder="Enter your property title" class="form-control" required/>
+            <!-- //for success -->
+            <div class="valid-feedback">Title Looks Good!</div> 
+            <!-- //for failure -->
+            <div class="invalid-feedback">Title should be valid!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="description" class="form-label">Description</lable>
+            <input type="textarea" style="height: 150px;" name="description" placeholder="Enter your property description" class="form-control" required/>
+            <div class="valid-feedback">Description Looks Good!</div> 
+            <div class="invalid-feedback"> Please Enter a short description</div>
+        </div>
+        <div class="mb-3">
+            <lable for="location" class="form-label">location</lable>
+            <input type="text" name="location" placeholder="Enter your property location" class="form-control" required/>
+            <div class="valid-feedback">Location Looks Good!</div> 
+            <div class="invalid-feedback">Location should be valid!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="travel" class="form-label">Travel</lable>
+            <input type="text" name="travel" placeholder="How you reached there?" class="form-control" />
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback">Should be text!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="speciality" class="form-label">Must watch</lable>
+            <input type="text" name="speciality" placeholder="Must try!" class="form-control" />
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback">Should be text!</div>
+        </div>
+        <div class="mb-3">
+            <lable for="food" class="form-label">Food</lable>
+            <input type="text" name="food" placeholder="Famous foods.." class="form-control" />
+            <div class="valid-feedback">Looks Good!</div> 
+            <div class="invalid-feedback">Should be text!</div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="mb-3">
+                    <label for="expense" class="form-label">Expense</label>
+                    <input name="expense" placeholder="Enter your total expense" class="form-control" required />
+                    <div class="valid-feedback">Looks Good!</div>
+                    <div class="invalid-feedback">Expense should be valid!</div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="country" placeholder="Enter your property country" class="form-control" required />
+                    <div class="valid-feedback">Country Looks Good!</div>
+                    <div class="invalid-feedback">Country should be valid!</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Choose a Category</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="mountain" value="mountain">
+                            <label class="form-check-label" for="mountain">
+                                Mountain
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="sea" value="sea">
+                            <label class="form-check-label" for="sea">
+                                Sea
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="city" value="city">
+                            <label class="form-check-label" for="city">
+                                City
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="desert" value="desert">
+                            <label class="form-check-label" for="desert">
+                                Desert
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="category" id="temple" value="temple">
+                            <label class="form-check-label" for="temple">
+                                Temple
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                </div>         
+        </div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <lable for="image" class="form-label">Upload Image</lable>
+            <input type="file" name="image" class="form-control"/>
+        </div>
+        <br/><br/>
+        <button class="btn btn-dark mb-2" style="background-color: blueviolet;">Add</button>
+        <br/>
+    </form>
+    </div>
+</div>
+</body>
+
