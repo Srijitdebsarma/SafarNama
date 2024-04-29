@@ -93,25 +93,14 @@ body{
     body {
         /* Adjust styles for mobile devices */
         font-size: 14px; /* Example adjustment */
+        overflow: hidden; /* Prevent scrolling while navbar is open */
     }
 
     /* Add more specific styles for mobile if needed */
     .navbar {
-        height: 5rem; /* Example adjustment for navbar height on mobile */
+        height: 11rem; /* Increased height for collapsed navbar */
         position: relative; /* Ensure proper stacking context */
     }
-    .navbar-toggler-icon {
-        display: none; /* Hide the default navbar toggler icon */
-    }
-    .navbar-toggler-icon {
-        display: none;
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        z-index: 100; /* Ensure the button stays on top */
-    }
-
     .navbar-collapse {
         backdrop-filter: blur(10px); /* Apply backdrop filter to the collapsed navbar */
         position: fixed;
@@ -120,9 +109,10 @@ body{
         bottom: 0;
         left: 0;
         background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-        z-index: 99; /* Ensure the collapsed navbar stays below the navbar buttons */
+        z-index: 999; /* Ensure the collapsed navbar stays above other content */
         display: none; /* Initially hide the collapsed navbar */
     }
+
     .navbar-toggler:focus + .navbar-collapse,
     .navbar-toggler-icon:hover + .navbar-collapse {
         display: block; /* Display the collapsed navbar when toggler is focused or hovered */
@@ -137,5 +127,4 @@ body{
         /* Example adjustment for image hover effect on mobile */
         filter: brightness(80%);
     }
-
 }

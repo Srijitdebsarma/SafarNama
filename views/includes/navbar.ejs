@@ -15,9 +15,11 @@
     aria-controls="navbarNavAltMarkup"
     aria-expanded="false"
     aria-label="Toggle navigation"
+    onclick="toggleBlur()"
   >
     <span class="navbar-toggler-icon"></span>
   </button>
+    
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/listings">Home</a>
@@ -77,3 +79,14 @@
     </div>
   </div>
 </nav>
+<script>
+  function toggleBlur() {
+      document.body.classList.toggle('blur');
+  }
+  </script>
+  
+  <style>
+  .blur {
+      backdrop-filter: blur(10px);
+  }
+  </style>
