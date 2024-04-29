@@ -107,12 +107,16 @@ module.exports.updateAListingForm=async (req,res)=>{
 //updateThe Listing 
 module.exports.updateListing=async (req,res)=>{
     let {id}=req.params;
+    let data=await Listing.findById(id);
     //req.file theke data extraction
       var url=""; 
       var filename="";
     if(typeof(req.file)!=="undefined"){ //if that exists
       url=req.file.path; 
       filename=req.file.originalname;
+    }
+    else{
+      url=data.image.url;
     }
     
     let {title,description,expense,category,travel,speciality,food,location,country}=req.body;  //extraction for post req

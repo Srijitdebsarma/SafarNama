@@ -15,9 +15,6 @@ body{
 }
 
 /* Navbar */
-.btn-search{
-    background-color: rgb(168, 209, 4);
-}
 .navbar{
     height: 5rem;
 }
@@ -101,7 +98,6 @@ body{
     /* Add more specific styles for mobile if needed */
     .navbar {
         height: 5rem; /* Example adjustment for navbar height on mobile */
-        background-color: rgb(166, 19, 19); /* Example adjustment for navbar color on mobile */
         position: relative; /* Ensure proper stacking context */
     }
     .navbar-toggler-icon {
