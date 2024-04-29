@@ -93,7 +93,6 @@ body{
     body {
         /* Adjust styles for mobile devices */
         font-size: 14px; /* Example adjustment */
-        overflow: hidden; /* Prevent scrolling while navbar is open */
     }
 
     /* Add more specific styles for mobile if needed */
