@@ -15,15 +15,18 @@ body{
 }
 
 /* Navbar */
+.btn-search{
+    background-color: rgb(168, 209, 4);
+}
 .navbar{
     height: 5rem;
-    background-color: white;
 }
 
 .nav-link{
     color: #222222 !important;  
     /* this word impotant will overide bootstrap css and apply my css*/
-} 
+}
+
 
 /* Footer */
 .footer{
@@ -86,4 +89,57 @@ body{
 
 .card-header, .btn-link {
     color: black !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+    body {
+        /* Adjust styles for mobile devices */
+        font-size: 14px; /* Example adjustment */
+    }
+
+    /* Add more specific styles for mobile if needed */
+    .navbar {
+        height: 5rem; /* Example adjustment for navbar height on mobile */
+        background-color: rgb(166, 19, 19); /* Example adjustment for navbar color on mobile */
+        position: relative; /* Ensure proper stacking context */
+    }
+    .navbar-toggler-icon {
+        display: none; /* Hide the default navbar toggler icon */
+    }
+    .navbar-toggler-icon {
+        display: none;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        z-index: 100; /* Ensure the button stays on top */
+    }
+
+    .navbar-collapse {
+        backdrop-filter: blur(10px); /* Apply backdrop filter to the collapsed navbar */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        z-index: 99; /* Ensure the collapsed navbar stays below the navbar buttons */
+        display: none; /* Initially hide the collapsed navbar */
+    }
+    .navbar-toggler:focus + .navbar-collapse,
+    .navbar-toggler-icon:hover + .navbar-collapse {
+        display: block; /* Display the collapsed navbar when toggler is focused or hovered */
+    }
+
+    .container {
+        /* Example adjustment for container on mobile */
+        padding: 30px;
+    }
+
+    .image-hover-effect:hover {
+        /* Example adjustment for image hover effect on mobile */
+        filter: brightness(80%);
+    }
+
 }
